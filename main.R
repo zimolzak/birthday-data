@@ -24,3 +24,7 @@ ggplot(data=bdd, aes(x=Time, y=Length)) + geom_density2d() + geom_point()
 
 ggplot(data=bdd, aes(factor(ExclamationPoints), Time)) + geom_boxplot() + geom_jitter()
 ggplot(data=bdd, aes(factor(ExclamationPoints), Length)) + geom_boxplot() + geom_jitter()
+
+kruskal.test(bdd$Time, factor(bdd$ExclamationPoints))
+kruskal.test(bdd$Length, factor(bdd$ExclamationPoints))
+
