@@ -11,12 +11,15 @@ Significant Results
 
 ![length vs happy](https://dl.dropboxusercontent.com/u/38640281/github_img/birthday/6%20length%20vs%20happy.png)
 
-Non-significant Results
+Univariate Distributions
 -----
 
 ![length](https://dl.dropboxusercontent.com/u/38640281/github_img/birthday/1%20length.png)
 
 ![time](https://dl.dropboxusercontent.com/u/38640281/github_img/birthday/2%20time.png)
+
+Non-significant Results
+----
 
 ![length vs time](https://dl.dropboxusercontent.com/u/38640281/github_img/birthday/3%20length%20vs%20time.png)
 
