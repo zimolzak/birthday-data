@@ -11,3 +11,16 @@ count_exclam = function(str){
 }
 
 bdd$ExclamationPoints = apply(array(bdd$message), 1, count_exclam)
+
+require(ggplot2)
+
+# univar
+ggplot(data=bdd, aes(x=Length)) + geom_histogram() + scale_x_log10()
+
+# time series with some clustering
+ggplot(data=bdd, aes(x=Time, y=Length)) + geom_density2d() + geom_point()
+
+# categorical vs numeric
+
+ggplot(data=bdd, aes(factor(ExclamationPoints), Time)) + geom_boxplot() + geom_jitter()
+ggplot(data=bdd, aes(factor(ExclamationPoints), Length)) + geom_boxplot() + geom_jitter()
