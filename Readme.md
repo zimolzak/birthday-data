@@ -4,7 +4,8 @@ Analyze Birthday Data
 Look at times and message content of happy birthday messages that were
 posted to my Facebook timeline. My main conclusion is that **if it
 doesn't start with the exact string "Happy", then it's likely to be a
-long message** (P = 0.018).
+long message** (P = 0.018). Also, you people are posting on Facebook
+pretty early for an averate weekday. Get back to work!
 
 Significant Results
 ----
