@@ -2,9 +2,9 @@ Analyze Birthday Data
 ========================
 
 Look at times and message content of happy birthday messages that were
-posted to my Facebook timeline. My main conclusion is that if it
+posted to my Facebook timeline. My main conclusion is that **if it
 doesn't start with the exact string "Happy", then it's likely to be a
-long message (P = 0.018).
+long message** (P = 0.018).
 
 Results
 ----
