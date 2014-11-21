@@ -18,8 +18,8 @@ bdd$ExclamationPoints = apply(array(bdd$message), 1, count_exclam)
 require(ggplot2)
 
 # univar
-ggplot(data=bdd, aes(x=Length)) + geom_density() + scale_x_log10()
-ggplot(data=bdd, aes(x=Time)) + geom_density()
+ggplot(data=bdd, aes(x=Length)) + geom_density() + scale_x_log10(limits=c(5,500))
+ggplot(data=bdd, aes(x=Time)) + geom_density() + scale_x_continuous(limits=c(-3,24))
 
 # time series with some clustering
 ggplot(data=bdd, aes(x=Time, y=Length)) + geom_density2d() + geom_point()
