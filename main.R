@@ -32,13 +32,13 @@ ggplot(data=bdd, aes(Starts_with_word_Happy, Number_of_characters_in_message)) +
 ggplot(data=bdd, aes(Starts_with_word_Happy, Time_of_day)) + geom_boxplot() + geom_jitter()
 
 kruskal.test(bdd$Time_of_day, bdd$Number_of_exclamation_points)
-kruskal.test(bdd$Number_of_characters_in_message, bdd$ExclamationPoints)
+kruskal.test(bdd$Number_of_characters_in_message, bdd$Number_of_exclamation_points)
 kruskal.test(bdd$Time_of_day, bdd$Starts_with_word_Happy)
 kruskal.test(bdd$Number_of_characters_in_message, bdd$Starts_with_word_Happy) # p = 0.0182. Ones that don't start with "Happy" are clearly longer.
 
 # category vs category
 
-table(bdd$Typical, bdd$Number_of_exclamation_points)
+table(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points)
 fisher.test(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points) # p-value = 0.04682
 
 # future thoughts: capitalization and presence of Birthday, whether it includes Andy, comma after birthday, category of person
