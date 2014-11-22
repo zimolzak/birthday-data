@@ -41,4 +41,4 @@ kruskal.test(bdd$Number_of_characters_in_message, bdd$Starts_with_word_Happy) # 
 table(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points)
 fisher.test(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points) # p-value = 0.04682
 
-# future thoughts: capitalization and presence of Birthday, whether it includes Andy, comma after birthday, category of person
+# future thoughts: capitalization and presence of Birthday, whether it includes Andy, comma after birthday, category of person, time zone
