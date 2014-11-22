@@ -31,6 +31,8 @@ ggplot(data=bdd, aes(Number_of_exclamation_points, Number_of_characters_in_messa
 ggplot(data=bdd, aes(Starts_with_word_Happy, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter()
 ggplot(data=bdd, aes(Starts_with_word_Happy, Time_of_day)) + geom_boxplot() + geom_jitter() + coord_flip()
 
+ggplot(data=bdd, aes(x=Number_of_characters_in_message, group= Starts_with_word_Happy, color= Starts_with_word_Happy)) + geom_density() + scale_x_log10(limits=c(2,1700))
+
 kruskal.test(bdd$Time_of_day, bdd$Number_of_exclamation_points) # 0.1326
 kruskal.test(bdd$Number_of_characters_in_message, bdd$Number_of_exclamation_points) # 0.7435
 kruskal.test(bdd$Time_of_day, bdd$Starts_with_word_Happy) # 0.608
