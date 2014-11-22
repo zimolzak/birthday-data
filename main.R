@@ -18,8 +18,8 @@ bdd$Number_of_exclamation_points = factor(apply(array(bdd$message), 1, count_exc
 require(ggplot2)
 
 # univar
-ggplot(data=bdd, aes(x=Number_of_characters_in_message)) + geom_density() + scale_x_log10(limits=c(5,500))
-ggplot(data=bdd, aes(x=Time_of_day)) + geom_density() + scale_x_continuous(limits=c(-3,24))
+ggplot(data=bdd, aes(x=Number_of_characters_in_message)) + geom_density() + scale_x_log10(limits=c(5,700))
+ggplot(data=bdd, aes(x=Time_of_day)) + geom_density() + scale_x_continuous(limits=c(-4,30))
 
 # time series with some clustering
 ggplot(data=bdd, aes(x=Time_of_day, y=Number_of_characters_in_message)) + geom_density2d() + geom_point()
@@ -29,16 +29,16 @@ ggplot(data=bdd, aes(x=Time_of_day, y=Number_of_characters_in_message)) + geom_d
 ggplot(data=bdd, aes(Number_of_exclamation_points, Time_of_day)) + geom_boxplot() + geom_jitter() + coord_flip()
 ggplot(data=bdd, aes(Number_of_exclamation_points, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter()
 ggplot(data=bdd, aes(Starts_with_word_Happy, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter()
-ggplot(data=bdd, aes(Starts_with_word_Happy, Time_of_day)) + geom_boxplot() + geom_jitter()
+ggplot(data=bdd, aes(Starts_with_word_Happy, Time_of_day)) + geom_boxplot() + geom_jitter() + coord_flip()
 
-kruskal.test(bdd$Time_of_day, bdd$Number_of_exclamation_points)
-kruskal.test(bdd$Number_of_characters_in_message, bdd$Number_of_exclamation_points)
-kruskal.test(bdd$Time_of_day, bdd$Starts_with_word_Happy)
-kruskal.test(bdd$Number_of_characters_in_message, bdd$Starts_with_word_Happy) # p = 0.0182. Ones that don't start with "Happy" are clearly longer.
+kruskal.test(bdd$Time_of_day, bdd$Number_of_exclamation_points) # 0.1326
+kruskal.test(bdd$Number_of_characters_in_message, bdd$Number_of_exclamation_points) # 0.7435
+kruskal.test(bdd$Time_of_day, bdd$Starts_with_word_Happy) # 0.608
+kruskal.test(bdd$Number_of_characters_in_message, bdd$Starts_with_word_Happy) # p = 0.0382. Ones that don't start with "Happy" are clearly longer.
 
 # category vs category
 
 table(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points)
-fisher.test(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points) # p-value = 0.04682
+fisher.test(bdd$Starts_with_word_Happy, bdd$Number_of_exclamation_points) # p-value = 0.04188
 
 # future thoughts: capitalization and presence of Birthday, whether it includes Andy, comma after birthday, category of person, time zone
