@@ -18,20 +18,20 @@ bdd$Number_of_exclamation_points = factor(apply(array(bdd$message), 1, count_exc
 require(ggplot2)
 
 # univar
-ggplot(data=bdd, aes(x=Number_of_characters_in_message)) + geom_density() + scale_x_log10(limits=c(5,700))
+ggplot(data=bdd, aes(x=Number_of_characters_in_message)) + geom_density() + scale_x_log10(limits=c(5, 1000))
 ggplot(data=bdd, aes(x=Time_of_day)) + geom_density() + scale_x_continuous(limits=c(-4,30))
 
 # time series with some clustering
-ggplot(data=bdd, aes(x=Time_of_day, y=Number_of_characters_in_message)) + geom_density2d() + geom_point()
+ggplot(data=bdd, aes(x=Time_of_day, y=Number_of_characters_in_message)) + geom_density2d() + geom_point() + scale_y_log10(limits=c(10, 1000))
 
 # categorical vs numeric
 
 ggplot(data=bdd, aes(Number_of_exclamation_points, Time_of_day)) + geom_boxplot() + geom_jitter() + coord_flip()
-ggplot(data=bdd, aes(Number_of_exclamation_points, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter()
-ggplot(data=bdd, aes(Starts_with_word_Happy, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter()
+ggplot(data=bdd, aes(Number_of_exclamation_points, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter() + scale_y_log10(limits=c(10, 1000))
+ggplot(data=bdd, aes(Starts_with_word_Happy, Number_of_characters_in_message)) + geom_boxplot() + geom_jitter() + scale_y_log10(limits=c(10, 1000))
 ggplot(data=bdd, aes(Starts_with_word_Happy, Time_of_day)) + geom_boxplot() + geom_jitter() + coord_flip()
 
-ggplot(data=bdd, aes(x=Number_of_characters_in_message, group= Starts_with_word_Happy, color= Starts_with_word_Happy)) + geom_density() + scale_x_log10(limits=c(2,1700))
+ggplot(data=bdd, aes(x=Number_of_characters_in_message, group= Starts_with_word_Happy, color= Starts_with_word_Happy)) + geom_density() + scale_x_log10(limits=c(2, 1700))
 
 kruskal.test(bdd$Time_of_day, bdd$Number_of_exclamation_points) # 0.1326
 kruskal.test(bdd$Number_of_characters_in_message, bdd$Number_of_exclamation_points) # 0.7435
